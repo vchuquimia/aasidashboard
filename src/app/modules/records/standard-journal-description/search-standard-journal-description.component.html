@@ -1,0 +1,32 @@
+<div class="container">
+    <h5 class="font-bold m-t-none m-b text-muted">Standard Journal Description</h5>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="form-group row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <a [routerLink]="['/records/standard-journal-description', 0]"><button class="btn btn-sm btn-info">
+                        <span class="icon-plus"></span>Add</button></a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <data-grid [itemsSource]="standardDescriptionList" title="Standard Journal Description">
+                <column field="Code" header="Code" filterMatchMode="contains"></column>
+                <column field="Name" header="Name" filterMatchMode="contains"></column>
+                <column header="Disable Default Memo" [style]="{'text-align':'center'}">
+                    <template let-col let-data="rowData" pTemplate type="checkbox">
+                        <input type="checkbox" name="DisableDefaultMemo" disabled [(ngModel)]="data.DisableDefaultMemo">
+                    </template>
+                </column>
+                <column header="Actions" [style]="{'text-align':'center'}">
+                    <template let-col let-data="rowData" pTemplate type="body">
+                        <a [routerLink]="['/records/standard-journal-description', data.Id]">
+                            <button class="btn btn-sm btn-info">Edit</button>
+                        </a>
+                        <button class="btn btn-sm btn-danger" (click)="Delete(data.Id)">Delete</button>
+                    </template>
+                </column>
+            </data-grid>
+        </div>
+    </div>

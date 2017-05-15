@@ -1,0 +1,63 @@
+
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-12">
+            <h5 class="font-bold m-t-none m-b text-muted">Area</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <form class="form" (ngSubmit)="onSubmit()">
+    
+            <fieldset>
+                <div class="form-group row">
+                    <label class="col-md-3" >Code:</label>
+                    <div class="col-md-4">
+                        <input type="text" name="txbCode" class="form-control" placeholder="Insert Code" [(ngModel)]="selectedArea.Code"/> 
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3" >Description:</label>
+                    <div class="col-md-4">
+                        <input type="text" name="txbDescription" class="form-control" placeholder="Insert Description Area" [(ngModel)]="selectedArea.Description"/> 
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3" >Working Capital:</label>
+                    <div class="col-md-4">
+                        <input type="text" name="txbWorkingCapital" class="form-control" placeholder="Insert Working Capital" [(ngModel)]="selectedArea.WorkingCapital"/> 
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3" >Has Standard Function:</label>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="chbHasStandardFunction" class="text-left" [(ngModel)]="selectedArea.HasStandardFunction"/> 
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3" >Organization Level:</label>
+                    <div class="col-md-4"> 
+                        <combo-box #cbOrganizationLevelEnum (OnSelectionChanged)="onOrganizationLevelEnumChanged($event)" > 
+                            <template let-item="item"><b>{{item}}</b></template>
+                        </combo-box>
+                    
+                    </div>
+                </div>
+                
+
+                <div class="form-group row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-4">
+                        <button type="submit"name="btnSave" class="btn btn-success" > Save </button>
+                        <a [routerLink]="['/search-area']">
+                            <button  type="button" class="btn btn-default"name="btnCancel" (click)="submitted=false"> Cancel </button>
+                        </a> 
+                    </div>
+                </div>
+                
+
+            </fieldset>
+        </form>
+    </div>
+</div>

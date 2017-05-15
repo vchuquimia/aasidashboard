@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-lg-4 m-l" *ngFor="let entity of entities">
+        <div class="card">
+            <div class="card-header">
+                <a class="padder-v text-muted b-r b-light" (click)="setAccountingEntity(entity)">
+
+                    <div class="clearfix">
+                        <i class=" pull-left thumb-md avatar b-2x m-r icon-home block m-b-xs fa-3x"></i>
+                        <div class="clear">
+                            <div class="h3 m-t-xs m-b-xs">
+                                {{entity.Code}}
+                                <i class="fa fa-circle text-success pull-right text-xs m-t-sm"></i>
+                            </div>
+                            <small>{{entity.Name}}</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!--<button (click)="getCurrentEntity()"> get current entity</button>-->

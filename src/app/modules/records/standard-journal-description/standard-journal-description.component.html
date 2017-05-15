@@ -1,0 +1,40 @@
+<div class="container">
+    <h5 class="font-bold m-t-none m-b text-muted">Standard Journal Description</h5>
+    <form class="form-horizontal">
+        <fieldset>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label text-right">Code</label>
+
+                <div class="col-md-4">
+                    <input id="textCode" name="textCode" type="text" placeholder="Enter a Code" class="form-control" [(ngModel)]="selectedStandardDescription.Code"
+                    />
+                </div>
+            </div>
+            <div class="form-group row">
+
+                <label class="col-md-3 col-form-label text-right">Name</label>
+
+                <div class="col-md-4">
+                    <input id="textName" name="textName" type="text" placeholder="Enter a name" class="form-control" [(ngModel)]="selectedStandardDescription.Name"
+                    />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label text-right"></label>
+                <div class="col-md-2">
+                <label><input type="checkbox" name="DisableDefaultMemo" value="" [(ngModel)]="selectedStandardDescription.DisableDefaultMemo">Disable Default Memo</label>
+                </div>                
+            </div>
+            <div class="form-group row">
+                <div class="col-lg-offset-6 col-lg-3 push-md-6">
+                    <button name="buttonSave" class="btn btn-success" type="button" (click)="onSubmit()">Save<div class="riple-wrapper"></div>
+                        </button>
+                    <a [routerLink]="['/search-standard-journal-description']">
+                        <button name="buttonCancel" type="button" (click)="submitted=false" class="btn btn-default">Cancel</button></a>
+
+                </div>
+
+            </div>
+        </fieldset>
+    </form>
+</div>

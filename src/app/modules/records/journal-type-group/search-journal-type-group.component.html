@@ -1,0 +1,51 @@
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-12">
+            <h5 class="font-bold m-t-none m-b text-muted">Journal Type Group</h5>
+        </div>
+    </div>
+
+    <div class="pull-right">
+        <a [routerLink]="['/journal-type-group', 0]"><button class="btn btn-sm btn-info">
+            <span class="icon-plus"></span> Add</button></a>
+    </div>
+
+    <div class="row">
+        <data-grid [itemsSource]="journalTypeGroups" title="journalTypeGroups">
+                <column field="Code" header="Code" filterMatchMode="contains"></column>
+                <column field="Name" header="Name" filterMatchMode="contains"></column>
+                <column header="Actions" [style]="{'text-align':'center'}">
+        <template let-col let-data="rowData" pTemplate type="body">
+          <a [routerLink]="['/journal-type-group', data.Id]">
+            <button class="btn btn-sm btn-info">Edit</button>
+          </a>
+          <button class="btn btn-sm btn-danger" (click)="deleteJournalTypeGroup(data.Id)">Delete</button>
+        </template>
+      </column>
+              </data-grid>
+    </div>
+
+    <!--<div class="row">
+        <table class="table table-hover">
+            <thead class="thead">
+                <td>Code</td>
+                <td>Name</td>
+                <td>Action</td>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of journalTypeGroups">
+                    <td >{{item.Code}}</td>
+                    <td >{{item.Name}}</td>
+                     <td>
+                         <a [routerLink]="['/journal-type-group', item.Id]">
+                            <button class="btn btn-sm btn-info">Edit</button>
+                        </a>
+                        <button class="btn btn-sm btn-danger" (click)="deleteJournalTypeGroup(item.Id)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>-->
+
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+    <h4>Currency</h4>
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="form-group row">
+            <div class="col-md-12">
+                 <div class="pull-right">
+                    <a [routerLink]="['/records/currency', 0]"><button class="btn btn-sm btn-info">
+                        <span class="icon-plus"></span> Add</button></a>
+                </div>
+            </div>        
+        </div>
+        <div class="form-group row">
+            <data-grid [itemsSource]="currencyList" title="currencyList">
+                <column field="Code" header="Code" filterMatchMode="contains"></column>
+                <column field="Name" header="Name" filterMatchMode="contains"></column>
+                <column field="Symbol" header="Symbol" filterMatchMode="contains"></column>                
+                <column header="Actions" [style]="{'text-align':'center'}">
+                <template let-col let-data="rowData" pTemplate type="body">
+                    <a [routerLink]="['/currency', data.Id]">
+                        <button class="btn btn-sm btn-info">Edit</button>
+                    </a>
+                    <button class="btn btn-sm btn-danger" (click)="DeleteCurrency(data.Id)">Delete</button>
+                </template>
+                </column>
+            </data-grid>
+        </div>
+    </div>
+</div>

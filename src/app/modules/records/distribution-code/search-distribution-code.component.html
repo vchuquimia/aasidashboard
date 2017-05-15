@@ -1,0 +1,27 @@
+<div class="container">
+  <h5 class="font-bold m-t-none m-b text-muted">1099 Distribution Code</h5>
+  <div class="row">
+    <a [routerLink]="['/records/distribution-code',0]" class="btn btn-sm btn-info pull-right">
+      <span class="icon-plus"></span>Add
+    </a>
+  </div>
+  <div class="row">
+    <data-grid [itemsSource]="distributionCodeList" title="1099 Distribution Code">
+      <column field="DistributionCode" header="Code" filterMatchMode="contains"></column>
+      <column field="Description" header="Description" filterMatchMode="contains"></column>
+      <column header="Type" [style]="{'text-align':'center'}">
+        <template let-col let-data="rowData" pTemplate type="body">
+         {{getEnum(data)}}
+        </template>
+      </column>
+       <column header="Actions" [style]="{'text-align':'center'}">
+        <template let-col let-data="rowData" pTemplate type="body">
+          <a [routerLink]="['/records/distribution-code', data.Id]">
+            <button class="btn btn-sm btn-info">Edit</button>
+          </a>
+          <button class="btn btn-sm btn-danger" (click)="delete(data.Id)">Delete</button>
+        </template>
+      </column>
+    </data-grid>
+  </div>
+</div>

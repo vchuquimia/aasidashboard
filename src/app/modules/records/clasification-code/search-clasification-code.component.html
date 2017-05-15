@@ -1,0 +1,34 @@
+<div class="container">
+    <h5 class="font-bold m-t-none m-b text-muted">1099 Clasification Code</h5>
+    <div class="row">
+        <a [routerLink]="['/records/clasification-code',0]">
+            <button class="btn btn-sm btn-info pull-right">
+            <span class="icon-plus"></span>     Add
+        </button>
+        </a>
+    </div>
+    <div class="row">
+        <data-grid [itemsSource]="ccParamList" title="1099 Clasification Code">
+            <column field="Code" header="Code" filterMatchMode="contains"></column>
+            <column field="Name" header="Description" filterMatchMode="contains"></column>
+            <column header="IsStandard" [style]="{'text-align':'center'}">
+                <template let-col let-data="rowData" pTemplate type="checkbox">
+                    <input type="checkbox" name="IsStandard" disabled [(ngModel)]="data.IsStandard">
+                </template>
+            </column>
+            <column header="Type" [style]="{'text-align':'center'}">
+                <template let-col let-data="rowData" pTemplate type="body">
+                    {{getEnum(data)}}
+                </template>
+            </column>
+            <column header="Actions" [style]="{'text-align':'center'}">
+                <template let-col let-data="rowData" pTemplate type="body">
+                    <a [routerLink]="['/records/clasification-code', data.Id]">
+                        <button class="btn btn-sm btn-info">Edit</button>
+                    </a>
+                    <button class="btn btn-sm btn-danger" (click)="delete(data.Id)">Delete</button>
+                </template>
+            </column>
+        </data-grid>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<div class="container">
+    <h4>Sub Account Type</h4>
+    <form class="form-horizontal">
+        <fieldset>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label text-right">Code</label>
+                <div class="col-md-4">
+                <input type="text" name="Code" placeholder="Insert Code" class="form-control" [(ngModel)]="selectedSubAccountType.Code"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label text-right">Name</label>
+                <div class="col-md-4">
+                <input type="text" name="Name" placeholder="Insert Name" class="form-control" [(ngModel)]="selectedSubAccountType.Name"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    </div>
+                <div class="col-md-4">
+                <combo-box #cbSubAccountTypeEnum (OnSelectionChanged)="onSubAccountTypeEnumChanged($event)" >
+                    <template let-item="item"><b>{{item}}</b></template>
+                </combo-box> 
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label text-right"></label>
+                <div class="col-md-2">
+                <label><input type="checkbox" name="IsCheckAllowed" value="" [(ngModel)]="selectedSubAccountType.IsCheckAllowed">Check is Allowed</label>
+                </div>
+                <div class="col-md-4">
+                <label><input type="checkbox" name="IsReceiptAllowed" value="" [(ngModel)]="selectedSubAccountType.IsReceiptAllowed">Receipt is Allowed</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label text-right"></label>
+                <div class="col-md-2">
+                <label><input type="checkbox" name="IsWireTransferAllowed" value="" [(ngModel)]="selectedSubAccountType.IsWireTransferAllowed">Wire Transfer is Allowed</label>
+                </div>
+                <div class="col-md-4">
+                <label><input type="checkbox" name="IsEligibleFor1099" value="" [(ngModel)]="selectedSubAccountType.IsEligibleFor1099">Eligible for 1099</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label text-right"></label>
+                <div class="col-md-2">
+                <label><input type="checkbox" name="HasAddress" value="" [(ngModel)]="selectedSubAccountType.HasAddress">has Address</label>
+                </div>
+                <div class="col-md-4">
+                <label><input type="checkbox" name="IsEligibleForGroup" value="" [(ngModel)]="selectedSubAccountType.IsEligibleForGroup">Group Accounts</label>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+            <div class="col-lg-offset-6 col-lg-3 push-md-6">
+                <button name="buttonSave" class="btn btn-success" type="button" (click)="OnSumit()">Save<div class="riple-wrapper"></div>
+                    </button>
+                <a [routerLink]="['/records/search-sub-account-type']">
+                    <button name="buttonCancel" type="button" (click)="submitted=false" class="btn btn-default">Cancel</button></a>
+
+            </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

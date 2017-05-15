@@ -1,10 +1,10 @@
-import { Sda.Aasi.AppPage } from './app.po';
+import { AasiPage } from './app.po';
 
 describe('sda.aasi.app App', () => {
-  let page: Sda.Aasi.AppPage;
+  let page: AasiPage;
 
   beforeEach(() => {
-    page = new Sda.Aasi.AppPage();
+    page = new AasiPage();
   });
 
   it('should display message saying app works', () => {
@@ -12,3 +12,4 @@ describe('sda.aasi.app App', () => {
     expect(page.getParagraphText()).toEqual('app works!');
   });
 });
+ 

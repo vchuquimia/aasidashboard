@@ -1,0 +1,31 @@
+<div class="container">
+    <h5 class="font-bold m-t-none m-b text-muted">Chart Of Funds</h5>
+    <div class="row">
+        <a [routerLink]="['/chart-of-funds',0]">
+        
+        <button class="btn btn-sm btn-info content-right">
+            <span class="icon-plus"></span> Add
+        </button></a>
+    </div>
+    <div class="row">
+     <table class="table">
+         <thead> <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Actions</th>                                            
+        </tr></thead>
+        <tbody>
+        <tr *ngFor="let item of ChartOfFundsList">
+            <td>{{item.Code}}</td>
+            <td>{{item.Name}}</td>
+            <td><a [routerLink]="['/chart-of-funds',item.Id]"><button class="btn btn-sm btn-info content-right" >
+            edit</button></a>
+            <button class="btn btn-sm btn-danger" (click)="Delete(item.Id)">
+            delete</button>
+            </td>
+        </tr>
+        </tbody>
+       
+     </table>
+     </div>
+</div>

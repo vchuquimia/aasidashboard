@@ -1,0 +1,34 @@
+<div class="container">
+    <form class="form-horizontal" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+    <h5 class="font-bold m-t-none m-b text-muted">Chart Of Funds</h5>
+    </div>
+    <div class="form-group row">   
+        <div class="col-md-2">
+            <label>Code</label>
+        </div>
+        
+        <div class="col-md-4">
+            <input  id="textCode" class="form-control" name="Code" type="text"  [(ngModel)] = "selectedChartOfFunds.Code" />
+        </div>       
+    </div>
+    <div class="form-group row">
+        <div class="col-md-2">
+            <label>Name</label> 
+        </div>     
+        <div class="col-md-6">       
+            <input  id="textName" class="form-control" name="name" type="text" [(ngModel)] = "selectedChartOfFunds.Name" />
+        </div>
+    </div>
+    
+     <div class="form-group row">
+                <div class="offset-md-6 col-md-4">
+                    <button name="buttonSave" class="btn btn-success" type="submit"><div class="riple-wrapper">Save</div>
+                    </button>
+                    <button name="buttonCancel" type="button" [routerLink]="['/search-chart-of-funds']" class="btn btn-default">Cancel</button>
+                  
+                </div>      
+            </div>
+     </form>
+     
+</div>

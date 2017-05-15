@@ -1,0 +1,46 @@
+
+<div class="container">
+    <div class="row ">
+        <div class="col-md-12">
+            <h5 class="font-bold m-t-none m-b text-muted">Area</h5>
+        </div>
+    </div>
+
+    <div class="pull-right">
+        <a [routerLink]="['/area', 0]"><button class="btn btn-sm btn-info">
+            <span class="icon-plus"></span> Add</button></a>
+    </div>
+
+    <div class="row">
+        <data-grid [itemsSource]="Areas" title="Areas">
+                <column field="Code" header="Code" filterMatchMode="contains"></column>
+                <column field="Description" header="Description" filterMatchMode="contains"></column>
+                <column field="WorkingCapital" header="Working Capital"></column>
+                <column  header="Has Standard Function" [style]="{'text-align':'center'}">
+                <template let-col let-data="rowData" pTemplate type="checkbox">
+                      <input type="checkbox" name="HasStandardFunction" disabled [(ngModel)]="data.HasStandardFunction"/> 
+                </template>
+                </column>
+                  <column header="Organization Level" [style]="{'text-align':'center'}">
+                    <template let-col let-data="rowData" pTemplate type="body">
+                    {{getEnum(data)}}
+               </template>
+             </column>
+                <column header="Enum" [style]="{'text-align':'center'}">
+                  <template let-col let-data="rowData" pTemplate type="body">
+                                {{getEnum(data)}}
+                  </template>
+                </column>
+                <column header="Actions" [style]="{'text-align':'center'}">
+        <template let-col let-data="rowData" pTemplate type="body">
+          <a [routerLink]="['/area', data.Id]">
+            <button class="btn btn-sm btn-info">Edit</button>
+          </a>
+          <button class="btn btn-sm btn-danger" (click)="deleteArea(data.Id)">Delete</button>
+        </template>
+      </column>
+              </data-grid>
+    </div>
+
+
+</div>

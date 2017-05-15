@@ -1,0 +1,21 @@
+<div class="container">
+    <h5 class="font-bold m-t-none m-b text-muted">Organization Type</h5>
+    <div class="row">
+        <a [routerLink]="['/records/organization-type', 0]"><button class="btn btn-sm btn-info pull-right">
+                        <span class="icon-plus"></span> Add</button></a>
+    </div>
+    <div class="row">
+        <data-grid [itemsSource]="orgTypeList" title="Organization Type">
+            <column field="Code" header="Code" filterMatchMode="contains"></column>
+            <column field="Name" header="Name" filterMatchMode="contains"></column>           
+            <column header="Actions" [style]="{'text-align':'center'}">
+                <template let-col let-data="rowData" pTemplate type="body">
+                    <a [routerLink]="['/records/organization-type', data.Id]">
+                        <button class="btn btn-sm btn-info">Edit</button>
+                    </a>
+                    <button class="btn btn-sm btn-danger" (click)="DeleteOrganizationType(data.Id)">Delete</button>
+                </template>
+            </column>
+        </data-grid>
+    </div>
+</div>

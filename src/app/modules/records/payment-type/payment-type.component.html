@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row ">
+        <div class="col-md-12">
+            <h5 class="font-bold m-t-none m-b text-muted">Payment Type</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <form class="form" (ngSubmit)="onSubmit()">
+    
+            <fieldset>
+                <div class="form-group row">
+                    <label class="col-md-3" >Code:</label>
+                    <div class="col-md-4">
+                        <input type="text" name="txbCode" class="form-control" placeholder="Insert Code" [(ngModel)]="selectedPaymentType.Code"/> 
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3" >Name:</label>
+                    <div class="col-md-4">
+                        <input type="text" name="txbName" class="form-control" placeholder="Insert Name" [(ngModel)]="selectedPaymentType.Name"/> 
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3" >Default Description:</label>
+                    <div class="col-md-4">
+                        <input type="text" name="txbDefaultDescription" class="form-control" placeholder="Insert Default Description" [(ngModel)]="selectedPaymentType.DefaultDescription"/> 
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-3" >Payment Type:</label>
+                    <div class="col-md-4"> 
+                        <combo-box #cbPaymentTypeEnum (OnSelectionChanged)="onPaymentTypeEnumChanged($event)" > 
+                            <template let-item="item"><b>{{item}}</b></template>
+                        </combo-box>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3" >Is Default:</label>
+                    <div class="col-md-4">
+                        <input type="checkbox" name="chbIsDefault" class="text-left" [(ngModel)]="selectedPaymentType.IsDefault"/> 
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-primary" name="btnSave"> Save </button>
+                        <a [routerLink]="['/search-payment-type']">
+                            <button type="button" class="btn btn-danger" name="btnCancel" (click)="submitted=false"> Cancel </button>
+                        </a> 
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>

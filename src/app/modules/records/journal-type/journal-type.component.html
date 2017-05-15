@@ -1,0 +1,275 @@
+<div class="container">
+  <h4>Journal Type</h4>
+  <!--<div class="col-md-3"></div>
+  <div class="col-md-9">-->
+    <form #f="ngForm" class="form-horizontal">
+      <fieldset>
+        <div class="form-group row">
+          <label class="col-md-4" >Code</label>
+          <div class="col-md-4">
+            <input type="text" name="textCode" class="form-control" [(ngModel)]="journalType.Code">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-md-4" >Description</label>
+          <div class="col-md-4">
+            <input type="text" name="textDescription" class="form-control" [(ngModel)]="journalType.Description">
+          </div>
+        </div>
+        <br>
+        <div class="form-group row">
+          <div class="col-md-3"></div>
+          <div class="col-md-7">
+             <ngb-tabset>
+              <ngb-tab>
+                <template ngbTabTitle><i style="padding-left: 5px" class="fa fa-2x fa-cog"></i> <b>Operations</b></template>
+                <template ngbTabContent>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsCheckAllowed" [(ngModel)]="journalType.IsCheckAllowed"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Check Allowed</label>
+                    </div>
+                    <div class="col-md-1">  
+                      <label class="i-switch bg-info" style="text-align: start;">
+                        <input type="checkbox" name="IsARDownloadAllowed" [(ngModel)]="journalType.IsARDownloadAllowed"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">                    
+                      <label>AR Download Allowed</label>     
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsReceiptAllowed" [(ngModel)]="journalType.IsReceiptAllowed"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Receipt Allowed</label>
+                    </div>
+                    <div class="col-md-1">  
+                      <label class="i-switch bg-info" style="text-align: start;">
+                        <input type="checkbox" name="IsAPDownloadAllowed" [(ngModel)]="journalType.IsAPDownloadAllowed"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">                    
+                      <label>Is AP Download Allowed</label>     
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsInvoiceAllowed" [(ngModel)]="journalType.IsInvoiceAllowed"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Check Allowed</label>
+                    </div>
+                    <div class="col-md-1">  
+                      <label class="i-switch bg-info" style="text-align: start;">
+                        <input type="checkbox" name="IsRecurringEntryAllowed" [(ngModel)]="journalType.IsRecurringEntryAllowed"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">                    
+                      <label>Recurring Entry Allowed</label>     
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsWireTransferAllowed" [(ngModel)]="journalType.IsWireTransferAllowed"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Wire Transfer Allowed</label>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsReceiptSchoolAllowed" [(ngModel)]="journalType.IsReceiptSchoolAllowed"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Receipt School Allowed</label>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsAttachmentsAllowed" [(ngModel)]="journalType.IsAttachmentsAllowed"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Attachments Allowed</label>
+                    </div>
+                  </div>
+                </template>
+              </ngb-tab>
+              <ngb-tab>
+                <template ngbTabTitle><i style="padding-left: 5px" class="fa fa-2x fa-wrench"></i> <b>Configurations</b></template>
+                <template ngbTabContent>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsAdjustedBalance" [(ngModel)]="journalType.IsAdjustedBalance"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Adjusted Balance</label>
+                    </div>
+                    <div class="col-md-1">  
+                      <label class="i-switch bg-info" style="text-align: start;">
+                        <input type="checkbox" name="IsDatePastAllowed" [(ngModel)]="journalType.IsDatePastAllowed"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">                    
+                      <label>Date Past Allowed</label>     
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsAdjustedBalanceMultiCurrency" [(ngModel)]="journalType.IsAdjustedBalanceMultiCurrency"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Adjusted Balance Multi Currency</label>
+                    </div>
+                    <div class="col-md-1">  
+                      <label class="i-switch bg-info" style="text-align: start;">
+                        <input type="checkbox" name="IsScheduleRequired" [(ngModel)]="journalType.IsScheduleRequired"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">                    
+                      <label>Schedule Required</label>     
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsAuditingAdjustment" [(ngModel)]="journalType.IsAuditingAdjustment"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Auditing Adjustment</label>
+                    </div>
+                    <div class="col-md-1">  
+                      <label class="i-switch bg-info" style="text-align: start;">
+                        <input type="checkbox" name="IsEditable" [(ngModel)]="journalType.IsEditable"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">                    
+                      <label>Editable</label>     
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsCalculated" [(ngModel)]="journalType.IsCalculated"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Calculated</label>
+                    </div>
+                    <div class="col-md-1">  
+                      <label class="i-switch bg-info" style="text-align: start;">
+                        <input type="checkbox" name="IsLegalBalance" [(ngModel)]="journalType.IsLegalBalance"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">                    
+                      <label>Legal Entity Balance</label>     
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsCashFlowBalance" [(ngModel)]="journalType.IsCashFlowBalance"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Cash Flow Balance</label>
+                    </div>
+                    <div class="col-md-1">  
+                      <label class="i-switch bg-info" style="text-align: start;">
+                        <input type="checkbox" name="IsLegalBalanceMultiCurrency" [(ngModel)]="journalType.IsLegalBalanceMultiCurrency"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-5">                    
+                      <label>Legal Entity Balance Multi Currency</label>     
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsTemplate" [(ngModel)]="journalType.IsTemplate"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Template</label>
+                    </div>
+                    <div class="col-md-1">  
+                      <label class="i-switch bg-info" style="text-align: start;">
+                        <input type="checkbox" name="IsBeginningBalance" [(ngModel)]="journalType.IsBeginningBalance"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">                    
+                      <label>Beginning Balance</label>     
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-1">
+                      <label class="i-switch bg-info" style="text-align: start; ">
+                        <input type="checkbox" name="IsClosingYear" [(ngModel)]="journalType.IsClosingYear"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">
+                      <label>Closing Year</label>
+                    </div>
+                    <div class="col-md-1">  
+                      <label class="i-switch bg-info" style="text-align: start;">
+                        <input type="checkbox" name="IsAllocationAdjustment" [(ngModel)]="journalType.IsAllocationAdjustment"/><i></i>
+                      </label>
+                    </div>
+                    <div class="col-md-4">                    
+                      <label>Allocation Adjustment</label>     
+                    </div>
+                  </div>
+                </template>
+              </ngb-tab>
+            </ngb-tabset>
+          </div>
+         
+        </div>
+
+        
+        
+
+
+        <!--<div class="form-group row">
+          <div class="col-md-1"></div>
+          <div class="col-md-4">
+            <button name="buttonSave" (click)="saveJournalType()"  class="btn btn-success" type="button">Save</button>
+            <a [routerLink]="['/search-journal-type']">
+              <button name="buttonCancel" type="button" class="btn btn-default">Cancel</button>
+            </a> 
+          </div>
+        </div> -->
+         <div class="form-group row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <button name="buttonSave" (click)="saveJournalType()"  class="btn btn-success" type="button">Save</button>
+                        <a [routerLink]="['/search-journal-type']">
+                            <button  type="button" class="btn btn-default"name="btnCancel" (click)="submitted=false"> Cancel </button>
+                        </a> 
+                    </div>
+                </div> 
+      </fieldset>
+    </form>
+
+  <!--</div>-->
+</div>

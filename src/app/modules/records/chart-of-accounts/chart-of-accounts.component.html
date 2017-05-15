@@ -1,0 +1,33 @@
+<div class="container">
+    <h5 class="font-bold m-t-none m-b text-muted">Chart Of Accounts</h5>
+    <form class="form-horizontal" (ngSubmit)="onSubmit()">   
+    <div class="form-group row">    
+        <label class="col-md-3 col-form-label text-right">Code</label>                
+        <div class="col-md-4"  >
+        <input id="textCode" class="form-control" name="Code" type="text"  [(ngModel)] = "selectedChartofAccount.Code" />
+        </div>    
+    </div>
+    <div class="form-group row">
+        <label class="col-md-3 col-form-label text-right">Name</label>           
+        <div class="col-md-4" >       
+        <input id="textName" class="form-control" name="name" type="text" [(ngModel)] = "selectedChartofAccount.Name" />
+        </div>
+    </div>    
+    <div class="form-group row">        
+        <label class="col-md-3 col-form-label text-right">Auxiliary Chart of Accounts</label>
+        <div class="col-md-3">
+        <combo-box #cbChartOfAccounts (OnSelectionChanged)="onChartOfAccountSelected($event)">
+            <template let-item="item"> {{item.Code}} - <b>{{item.Name}}</b></template>
+        </combo-box>
+        </div>
+     </div>
+     <!--{{selectedChartofAccount | json}}-->
+     <div class="form-group row">
+                <div class="col-lg-offset-6 col-lg-3 push-md-6">
+                    <button name="buttonSave" class="btn btn-success" type="submit"><div class="riple-wrapper">Save</div>
+                    </button>
+                    <button name="buttonCancel" type="button" [routerLink]="['/search-chart-of-accounts']" class="btn btn-default">Cancel</button>
+                </div>      
+     </div>
+     </form>     
+</div>

@@ -1,0 +1,26 @@
+<div class="navi">
+  <ul class="nav">
+    <li>
+      <a routerLink="/entity-selection" routerLinkActive="active">
+        <i class="icon-home text-primary-dker"></i>
+        <span>Entity</span>
+      </a>
+    </li>
+    <ng-template ngFor let-menuGroup [ngForOf]="menu">
+      <li class="hidden-folded padder m-t m-b-sm text-muted text-md">
+        <span>{{menuGroup.DisplayName}}</span>
+      </li>
+      <li *ngFor="let menuItem of menuGroup.Items">
+        <a [routerLink]="[menuItem.RouterLink]" routerLinkActive="active">
+          <i class="fa fa-pie-chart icon text-success" [ngClass]="{'menuItem.IconClass':true}"></i>
+          <span>{{menuItem.DisplayName}}</span>
+        </a>
+      </li>
+      <li class="line dk"></li>
+    </ng-template>
+
+  </ul>
+</div>
+
+
+<!-- / list -->

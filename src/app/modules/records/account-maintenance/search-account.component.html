@@ -1,0 +1,39 @@
+<div class="container">
+  <h5 class="font-bold m-t-none m-b text-muted">Accounts</h5>
+  <div class="row">
+    <div class="col-md-3">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="filter ..." [(ngModel)]="filter">
+        <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button" (click)="search()">Search</button>
+      </span>
+      </div>
+    </div>
+    <div class="col-md-3">
+    <a [routerLink]="['/records/distribution-code',0]" class="btn btn-sm btn-info pull-right">
+      <span class="icon-plus"></span>Add
+    </a>
+    </div>
+  </div>
+  <div class="row">
+    <data-grid [itemsSource]="accounts" title="Accounts">
+      <column field="Code" header="Code" filterMatchMode="contains"></column>
+      <column field="Name" header="Description" filterMatchMode="contains"></column>
+      <!--<column field="SubAccountType.Name" header="Description" filterMatchMode="contains"></column>-->
+      <!--<column header="Actions" [style]="{'text-align':'center'}">
+        <template let-col let-data="rowData" pTemplate type="body">
+          <a [routerLink]="['/records/distribution-code', data.Id]">
+            <button class="btn btn-sm btn-info">Edit</button>
+          </a>
+          <button class="btn btn-sm btn-danger" (click)="delete(data.Id)">Delete</button>
+        </template>
+      </column>-->
+    </data-grid>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" name="" id="" class="btn btn-secondary" (click)="loadMore()" >Load More Items - total  {{pager.TotalRows}}</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="container">
+    <h4>Journal Type</h4>
+    <div class="col-md-12">
+        <div class="form-group row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <a [routerLink]="['/records/journal-type', 0]"><button class="btn btn-sm btn-info">
+                        <span class="icon-plus"></span> Add</button></a>
+                </div>
+            </div>        
+        </div>
+        <div class="form-group row">
+        <data-grid [itemsSource]="journalTypeList" title="journalTypeList">
+            <column field="Code" header="Code" filterMatchMode="contains"></column>
+            <column field="Description" header="Description" filterMatchMode="contains"></column>
+            <column header="Check Allowed" [style]="{'text-align':'center'}">
+            <template let-col let-data="rowData" pTemplate type="checkbox">
+                    <input type="checkbox" name="IsCheckAllowed" disabled [(ngModel)]="data.IsCheckAllowed"/> 
+            </template>
+            </column>
+            <column header="Editable" [style]="{'text-align':'center'}">
+            <template let-col let-data="rowData" pTemplate type="checkbox">
+                    <input type="checkbox" name="IsEditable" disabled [(ngModel)]="data.IsEditable"/> 
+            </template>
+            </column>
+            <column header="Attachments Allowed" [style]="{'text-align':'center'}">
+            <template let-col let-data="rowData" pTemplate type="checkbox">
+                    <input type="checkbox" name="IsAttachmentsAllowed" disabled [(ngModel)]="data.IsAttachmentsAllowed"/> 
+            </template>
+            </column>
+            <column header="Invoice Allowed" [style]="{'text-align':'center'}">
+            <template let-col let-data="rowData" pTemplate type="checkbox">
+                    <input type="checkbox" name="IsInvoiceAllowed" disabled [(ngModel)]="data.IsInvoiceAllowed"/> 
+            </template>
+            </column>
+            <column header="Actions" [style]="{'text-align':'center'}">
+            <template let-col let-data="rowData" pTemplate type="body">
+                <a [routerLink]="['/journal-type', data.Id]">
+                    <button class="btn btn-sm btn-info">Edit</button>
+                </a>
+                <button class="btn btn-sm btn-danger" (click)="DeleteJournalType(data.Id)">Delete</button>
+            </template>
+            </column>
+        </data-grid>
+    </div>
+    </div>
+</div>
